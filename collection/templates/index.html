@@ -1,15 +1,19 @@
 {% extends "layouts/base.html" %}
+{% load humanize %}
+
 {% block title %}Homepage - {{ block.super }}{% endblock %}
 {% block content %}
 	<h1>Hello World!</h1>
 	<p>I am a basic website.</p>
 	<! -- here's the variable we're passing in. -->
-	<p>Are there 6 dogs?</p>
-	{% if number == 6 %}
-	Yes!
-	{% else %}
-	Nah.
-	{% endif %}
-	
-	<p>{{number}}</p>
+	<p>There are {{ number|intcomma }} dogs!</p>
+		{% if number == 6 %}
+			True
+		{% else %}
+			False
+		{% endif %}
+		</b>
+		</p>
+	<p>This is my name: {{ thing|truncatewords:1 }}</p>
+	<p>There are also {{ number|intword }} walrus{{ number|pluralize:"es" }}!</p>
 {% endblock %}
